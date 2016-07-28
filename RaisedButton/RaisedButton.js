@@ -291,9 +291,9 @@ var RaisedButton = function (_Component) {
         label
       );
 
-      var iconCloned = icon && _react2.default.cloneElement(icon, {
+      var iconCloned = icon && (0, _react.cloneElement)(icon, {
         color: icon.props.color || styles.label.color,
-        style: styles.icon
+        style: (0, _simpleAssign2.default)(styles.icon, icon.props.style)
       });
 
       // Place label before or after children.

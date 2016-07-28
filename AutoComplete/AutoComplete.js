@@ -135,14 +135,14 @@ var AutoComplete = function (_Component) {
       var chosenRequest = dataSource[index];
       var searchText = _this.chosenRequestText(chosenRequest);
 
-      _this.props.onNewRequest(chosenRequest, index);
-
       _this.timerTouchTapCloseId = setTimeout(function () {
+        _this.timerTouchTapCloseId = null;
+
         _this.setState({
           searchText: searchText
         });
         _this.close();
-        _this.timerTouchTapCloseId = null;
+        _this.props.onNewRequest(chosenRequest, index);
       }, _this.props.menuCloseDelay);
     }, _this.chosenRequestText = function (chosenRequest) {
       if (typeof chosenRequest === 'string') {
@@ -288,6 +288,7 @@ var AutoComplete = function (_Component) {
       var _props = this.props;
       var anchorOrigin = _props.anchorOrigin;
       var animated = _props.animated;
+      var animation = _props.animation;
       var dataSource = _props.dataSource;
       var dataSourceConfig = _props.dataSourceConfig;
       var disableFocusRipple = _props.disableFocusRipple;
@@ -309,7 +310,7 @@ var AutoComplete = function (_Component) {
       var openOnFocus = _props.openOnFocus;
       var searchTextProp = _props.searchText;
 
-      var other = _objectWithoutProperties(_props, ['anchorOrigin', 'animated', 'dataSource', 'dataSourceConfig', 'disableFocusRipple', 'errorStyle', 'floatingLabelText', 'filter', 'fullWidth', 'style', 'hintText', 'maxSearchResults', 'menuCloseDelay', 'menuStyle', 'menuProps', 'listStyle', 'targetOrigin', 'triggerUpdateOnFocus', 'onNewRequest', 'onUpdateInput', 'openOnFocus', 'searchText']);
+      var other = _objectWithoutProperties(_props, ['anchorOrigin', 'animated', 'animation', 'dataSource', 'dataSourceConfig', 'disableFocusRipple', 'errorStyle', 'floatingLabelText', 'filter', 'fullWidth', 'style', 'hintText', 'maxSearchResults', 'menuCloseDelay', 'menuStyle', 'menuProps', 'listStyle', 'targetOrigin', 'triggerUpdateOnFocus', 'onNewRequest', 'onUpdateInput', 'openOnFocus', 'searchText']);
 
       var _state = this.state;
       var open = _state.open;
@@ -422,7 +423,8 @@ var AutoComplete = function (_Component) {
             anchorEl: anchorEl,
             useLayerForClickAway: false,
             onRequestClose: this.handleRequestClose,
-            animated: animated
+            animated: animated,
+            animation: animation
           },
           menu
         )
@@ -442,6 +444,10 @@ AutoComplete.propTypes = {
    * If true, the auto complete is animated as it is toggled.
    */
   animated: _react.PropTypes.bool,
+  /**
+   * Override the default animation component used.
+   */
+  animation: _react.PropTypes.func,
   /**
    * Array of strings or nodes used to populate the list.
    */

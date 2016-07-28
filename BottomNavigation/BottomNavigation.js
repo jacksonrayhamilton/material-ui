@@ -75,8 +75,12 @@ function getStyles(props, context) {
       zIndex: zIndex.bottomNavigation,
       width: '100%',
       display: 'flex',
+      justifyContent: 'center',
       backgroundColor: bottomNavigation.color,
       height: bottomNavigation.height
+    },
+    item: {
+      flex: '1'
     }
   };
 
@@ -93,12 +97,6 @@ var BottomNavigation = function (_React$Component) {
   }
 
   _createClass(BottomNavigation, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      // warning(!this.props.iconElementLeft || !this.props.iconClassNameLeft, `Properties iconElementLeft
-      //   and iconClassNameLeft cannot be simultaneously defined. Please use one or the other.`);
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _props = this.props;
@@ -114,10 +112,9 @@ var BottomNavigation = function (_React$Component) {
 
       var styles = getStyles(this.props, this.context);
 
-      var childWidth = 100 / _react2.default.Children.count(children) + '%';
       var preparedChildren = _react2.default.Children.map(children, function (child, index) {
         return _react2.default.cloneElement(child, {
-          style: (0, _simpleAssign2.default)({}, child.props.style, { width: childWidth }),
+          style: (0, _simpleAssign2.default)({}, styles.item, child.props.style),
           selected: index === selectedIndex
         });
       });
@@ -140,14 +137,12 @@ var BottomNavigation = function (_React$Component) {
 BottomNavigation.muiName = 'BottomNavigation';
 BottomNavigation.propTypes = {
   /**
-   * Applied to the app bar's root element.
+   * Applied to the bottom navigation's root element.
    */
   className: _react2.default.PropTypes.string,
 
   /**
-   * The `MenuItem`s to populate the `Menu` with. If the `MenuItems` have the
-   * prop `label` that value will be used to render the representation of that
-   * item within the field.
+   * The `BottomNavigationItem`s to populate the `BottomNavigation` with.
    */
   children: _react2.default.PropTypes.node,
 
@@ -163,7 +158,7 @@ BottomNavigation.propTypes = {
 
   /**
    * The zDepth of the component.
-   * The shadow of the app bar is also dependent on this property.
+   * The shadow of the bottom navigation is also dependent on this property.
    */
   zDepth: _propTypes2.default.zDepth
 };

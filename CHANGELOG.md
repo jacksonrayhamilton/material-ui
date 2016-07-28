@@ -2,6 +2,47 @@
 
 ##### Breaking Changes
 - [Badge] Swapped primary and accent colors (#4449)
+- [CircularProgress] The API has become more flexible and straightforward. `size` attribute now means the outer diameter in pixels. Line thickness is variable and should be defined via the `thickness` attribute. Default margins are eliminated. If you'd like to upgrade your existing app without changing the actual sizes of your `CircularProgress` components, here are the formulas:
+```js
+newSize = 59.5 * oldSize;
+thickness = 3.5 * oldSize;
+margin = (oldSize < 0.71) ?
+  ((50 - 59.5 * oldSize) / 2) :
+  (5.25 * oldSize);
+```
+Examples:
+```
+// Before:
+<CircularProgress />
+<CircularProgress size={2} />
+
+// After:
+<CircularProgress size={59.5} style={{margin: 5.25}} /> // Thickness is 3.5 by default
+<CircularProgress size={119} thickness={7} style={{margin: 10.5}} />
+```
+(#4705)
+
+- Remove a workaround regarding the context propagation as it was fixed in the React Core.
+Upgrade to React v15.2.1 if you are affected. (#4729)
+
+##### Component Fixes / Enhancements
+- [React] For more invalid props warning (#4667, #4675, #4685, #4725)
+- [Dependencies] Update to the latest release version (#4669)
+- [Popover] Forward the animation proporty to this component (#4702)
+- [MenuItem] Add cursor pointer back to the menu items (#4715)
+- [Snackbar] change the action's PropType to node (#4716)
+- [List] Prefix the style properties (#1cb0617)
+- [TextField] False should be a valid value (#4728)
+- [Menu] TypeError: key is undefined (#4734)
+- [ListItem] Trigger onNestedListToggle callback after state update (#4743)
+- [ListItem] Fix incorrect nestedLevel (#4744)
+
+##### Core
+- [eslint] Find new rules with ease (#4521)
+
+##### Docs
+- [ROADMAP] Remove addressed issues (#4745)
+- [Docs] Replaces images on Card page with hosted images (#4748)
 
 ## 0.15.2
 ###### _Jul 7, 2016_

@@ -46,15 +46,22 @@ function getStyles(props, context, state) {
 
   var color = selected ? bottomNavigation.selectedColor : bottomNavigation.unselectedColor;
   var styles = {
+    root: {
+      transition: 'all 0.3s',
+      paddingTop: selected ? '6px' : '8px',
+      paddingBottom: '10px',
+      paddingLeft: '12px',
+      paddingRight: '12px',
+      minWidth: '80px',
+      maxWidth: '168px'
+    },
     label: {
       fontSize: selected ? bottomNavigation.selectedFontSize : bottomNavigation.unselectedFontSize,
-      marginTop: '-3px',
       transition: 'all 0.3s',
       color: color
     },
     icon: {
-      display: 'block',
-      marginTop: '2px'
+      display: 'block'
     },
     iconColor: color
   };
@@ -76,31 +83,6 @@ var BottomNavigationItem = function (_React$Component) {
     value: function shouldComponentUpdate(nextProps, nextState) {
       return !(0, _shallowEqual2.default)(this.props, nextProps) || !(0, _shallowEqual2.default)(this.state, nextState);
     }
-
-    // createLabelElement(styles, contentChildren, additionalProps) {
-    //   const {
-    //     innerDivStyle,
-    //     style,
-    //   } = this.props;
-    //
-    //   const mergedLabelStyles = Object.assign({},
-    //     styles.root,
-    //     styles.innerDiv,
-    //     innerDivStyle,
-    //     styles.label,
-    //     style
-    //   );
-    //
-    //   return (
-    //     <label
-    //       {...additionalProps}
-    //       style={this.context.muiTheme.prepareStyles(mergedLabelStyles)}
-    //     >
-    //       {contentChildren}
-    //     </label>
-    //    );
-    // }
-
   }, {
     key: 'render',
     value: function render() {
@@ -140,14 +122,21 @@ var BottomNavigationItem = function (_React$Component) {
 
 BottomNavigationItem.muiName = 'BottomNavigationItem';
 BottomNavigationItem.propTypes = {
+  /**
+   * Set the label describing the view for this item.
+   */
   label: _react2.default.PropTypes.string,
+
+  /**
+   * Set the icon representing the view for this item.
+   */
   icon: _react2.default.PropTypes.node,
+
   /**
    * Override the inline-styles of the root element.
    */
   style: _react2.default.PropTypes.object
 };
-BottomNavigationItem.defaultProps = {};
 BottomNavigationItem.contextTypes = {
   muiTheme: _react2.default.PropTypes.object.isRequired
 };

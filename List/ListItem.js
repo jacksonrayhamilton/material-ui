@@ -216,8 +216,9 @@ var ListItem = function (_Component) {
       _this.props.onMouseLeave(event);
     }, _this.handleNestedListToggle = function (event) {
       event.stopPropagation();
-      _this.setState({ open: !_this.state.open });
-      _this.props.onNestedListToggle(_this);
+      _this.setState({ open: !_this.state.open }, function () {
+        _this.props.onNestedListToggle(_this);
+      });
     }, _this.handleRightIconButtonKeyboardFocus = function (event, isKeyboardFocused) {
       if (isKeyboardFocused) {
         _this.setState({
@@ -475,7 +476,7 @@ var ListItem = function (_Component) {
 
       var nestedList = nestedItems.length ? _react2.default.createElement(
         _NestedList2.default,
-        { nestedLevel: nestedLevel + 1, open: this.state.open, style: nestedListStyle },
+        { nestedLevel: nestedLevel, open: this.state.open, style: nestedListStyle },
         nestedItems
       ) : undefined;
 

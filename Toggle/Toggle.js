@@ -160,10 +160,11 @@ var Toggle = function (_Component) {
     value: function render() {
       var _props2 = this.props;
       var defaultToggled = _props2.defaultToggled;
+      var elementStyle = _props2.elementStyle;
       var onToggle = _props2.onToggle;
       var toggled = _props2.toggled;
 
-      var other = _objectWithoutProperties(_props2, ['defaultToggled', 'onToggle', 'toggled']);
+      var other = _objectWithoutProperties(_props2, ['defaultToggled', 'elementStyle', 'onToggle', 'toggled']);
 
       var prepareStyles = this.context.muiTheme.prepareStyles;
 
@@ -177,7 +178,7 @@ var Toggle = function (_Component) {
         thumbStyles.marginLeft = 0 - thumbStyles.width;
       }
 
-      var toggleElementStyles = (0, _simpleAssign2.default)({}, styles.toggleElement, this.props.elementStyle);
+      var toggleElementStyles = (0, _simpleAssign2.default)({}, styles.toggleElement, elementStyle);
 
       var toggleElement = _react2.default.createElement(
         'div',

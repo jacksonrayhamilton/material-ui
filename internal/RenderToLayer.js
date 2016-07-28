@@ -8,17 +8,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _react = require('react');
 
-var _react2 = _interopRequireDefault(_react);
-
 var _reactDom = require('react-dom');
 
 var _dom = require('../utils/dom');
 
 var _dom2 = _interopRequireDefault(_dom);
-
-var _MuiThemeProvider = require('../styles/MuiThemeProvider');
-
-var _MuiThemeProvider2 = _interopRequireDefault(_MuiThemeProvider);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -143,15 +137,7 @@ var RenderToLayer = function (_Component) {
           }
         }
 
-        /**
-         * We use the <MuiThemeProvider /> component as a work around for
-         * https://github.com/facebook/react/issues/6599.
-         */
-        var layerElement = _react2.default.createElement(
-          _MuiThemeProvider2.default,
-          { muiTheme: this.context.muiTheme },
-          render()
-        );
+        var layerElement = render();
         this.layerElement = (0, _reactDom.unstable_renderSubtreeIntoContainer)(this, layerElement, this.layer);
       } else {
         this.unrenderLayer();
