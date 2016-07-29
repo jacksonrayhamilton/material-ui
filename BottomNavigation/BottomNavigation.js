@@ -16,14 +16,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _IconButton = require('../IconButton');
-
-var _IconButton2 = _interopRequireDefault(_IconButton);
-
-var _menu = require('../svg-icons/navigation/menu');
-
-var _menu2 = _interopRequireDefault(_menu);
-
 var _Paper = require('../Paper');
 
 var _Paper2 = _interopRequireDefault(_Paper);
@@ -31,10 +23,6 @@ var _Paper2 = _interopRequireDefault(_Paper);
 var _propTypes = require('../utils/propTypes');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _warning = require('warning');
-
-var _warning2 = _interopRequireDefault(_warning);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -46,14 +34,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * TODOs:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Tidy up code
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Add correct documentation
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * - Support custom highlight colors
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * - Support custom highlight color per selected item
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * - Support badged icons
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * - Support showing label only for selected item
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * - Add constraints for number of children provided
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Apply width rules on BottomNavigationItems
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * - Enforce appropriate label length and avoid overflows/breaks
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * - V2: Support custom background color on bar depending on selected item
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * - V2: Support expanding width of selected item
@@ -66,8 +51,6 @@ function getStyles(props, context) {
   var bottomNavigation = _context$muiTheme.bottomNavigation;
   var zIndex = _context$muiTheme.zIndex;
 
-
-  var flatButtonSize = 36;
 
   var styles = {
     root: {
@@ -108,8 +91,6 @@ var BottomNavigation = function (_React$Component) {
 
       var other = _objectWithoutProperties(_props, ['className', 'children', 'style', 'zDepth', 'selectedIndex']);
 
-      var prepareStyles = this.context.muiTheme.prepareStyles;
-
       var styles = getStyles(this.props, this.context);
 
       var preparedChildren = _react2.default.Children.map(children, function (child, index) {
@@ -137,14 +118,14 @@ var BottomNavigation = function (_React$Component) {
 BottomNavigation.muiName = 'BottomNavigation';
 BottomNavigation.propTypes = {
   /**
-   * Applied to the bottom navigation's root element.
-   */
-  className: _react2.default.PropTypes.string,
-
-  /**
    * The `BottomNavigationItem`s to populate the `BottomNavigation` with.
    */
   children: _react2.default.PropTypes.node,
+
+  /**
+   * Applied to the bottom navigation's root element.
+   */
+  className: _react2.default.PropTypes.string,
 
   /**
    * The index of the currently selected navigation item.

@@ -36,6 +36,7 @@ Upgrade to React v15.2.1 if you are affected. (#4729)
 - [Menu] TypeError: key is undefined (#4734)
 - [ListItem] Trigger onNestedListToggle callback after state update (#4743)
 - [ListItem] Fix incorrect nestedLevel (#4744)
+- [BottomNavigation] Initial implementation (#4846)
 
 ##### Core
 - [eslint] Find new rules with ease (#4521)

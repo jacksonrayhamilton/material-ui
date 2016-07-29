@@ -45,8 +45,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 /**
  * Get the MUI theme corresponding to a base theme.
  * It's possible to override the computed theme values
@@ -54,8 +52,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * theme will be deeply merged with the second argument.
  */
 function getMuiTheme(muiTheme) {
-  var _bottomNavigation;
-
   for (var _len = arguments.length, more = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
     more[_key - 1] = arguments[_key];
   }
@@ -94,12 +90,14 @@ function getMuiTheme(muiTheme) {
       secondaryTextColor: palette.alternateTextColor,
       fontWeight: _typography2.default.fontWeightMedium
     },
-    bottomNavigation: (_bottomNavigation = {
+    bottomNavigation: {
       backgroundColor: _colors.white,
-      height: spacing.desktopKeylineIncrement,
       unselectedColor: (0, _colorManipulator.fade)(palette.textColor, 0.54),
-      selectedColor: palette.primary1Color
-    }, _defineProperty(_bottomNavigation, 'height', 56), _defineProperty(_bottomNavigation, 'unselectedFontSize', 12), _defineProperty(_bottomNavigation, 'selectedFontSize', 14), _bottomNavigation),
+      selectedColor: palette.primary1Color,
+      height: 56,
+      unselectedFontSize: 12,
+      selectedFontSize: 14
+    },
     button: {
       height: 36,
       minWidth: 88,

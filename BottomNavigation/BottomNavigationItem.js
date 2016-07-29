@@ -16,10 +16,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _shallowEqual = require('recompose/shallowEqual');
 
 var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
@@ -38,7 +34,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function getStyles(props, context, state) {
+function getStyles(props, context) {
   var selected = props.selected;
   var muiTheme = context.muiTheme;
   var bottomNavigation = muiTheme.bottomNavigation;
@@ -110,7 +106,7 @@ var BottomNavigationItem = function (_React$Component) {
         styledIcon,
         _react2.default.createElement(
           'div',
-          { style: styles.label },
+          { style: prepareStyles(styles.label) },
           label
         )
       );
@@ -123,14 +119,14 @@ var BottomNavigationItem = function (_React$Component) {
 BottomNavigationItem.muiName = 'BottomNavigationItem';
 BottomNavigationItem.propTypes = {
   /**
-   * Set the label describing the view for this item.
-   */
-  label: _react2.default.PropTypes.string,
-
-  /**
    * Set the icon representing the view for this item.
    */
   icon: _react2.default.PropTypes.node,
+
+  /**
+   * Set the label describing the view for this item.
+   */
+  label: _react2.default.PropTypes.string,
 
   /**
    * Override the inline-styles of the root element.
