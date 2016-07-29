@@ -16,14 +16,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Paper = require('../Paper');
-
-var _Paper2 = _interopRequireDefault(_Paper);
-
-var _propTypes = require('../utils/propTypes');
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -86,10 +78,9 @@ var BottomNavigation = function (_React$Component) {
       var className = _props.className;
       var children = _props.children;
       var style = _props.style;
-      var zDepth = _props.zDepth;
       var selectedIndex = _props.selectedIndex;
 
-      var other = _objectWithoutProperties(_props, ['className', 'children', 'style', 'zDepth', 'selectedIndex']);
+      var other = _objectWithoutProperties(_props, ['className', 'children', 'style', 'selectedIndex']);
 
       var styles = getStyles(this.props, this.context);
 
@@ -101,11 +92,10 @@ var BottomNavigation = function (_React$Component) {
       });
 
       return _react2.default.createElement(
-        _Paper2.default,
+        'div',
         _extends({}, other, {
           className: className,
-          style: (0, _simpleAssign2.default)({}, styles.root, style),
-          zDepth: zDepth
+          style: (0, _simpleAssign2.default)({}, styles.root, style)
         }),
         preparedChildren
       );
@@ -135,16 +125,7 @@ BottomNavigation.propTypes = {
   /**
    * Override the inline-styles of the root element.
    */
-  style: _react2.default.PropTypes.object,
-
-  /**
-   * The zDepth of the component.
-   * The shadow of the bottom navigation is also dependent on this property.
-   */
-  zDepth: _propTypes2.default.zDepth
-};
-BottomNavigation.defaultProps = {
-  zDepth: 1
+  style: _react2.default.PropTypes.object
 };
 BottomNavigation.contextTypes = {
   muiTheme: _react2.default.PropTypes.object.isRequired
