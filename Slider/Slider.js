@@ -48,7 +48,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * @returns {Object} Returns an Error if min >= max otherwise null.
  */
 var minMaxPropType = function minMaxPropType(props, propName, componentName) {
-  var error = _react.PropTypes.number(props, propName, componentName);
+  for (var _len = arguments.length, rest = Array(_len > 3 ? _len - 3 : 0), _key = 3; _key < _len; _key++) {
+    rest[_key - 3] = arguments[_key];
+  }
+
+  var error = _react.PropTypes.number.apply(_react.PropTypes, [props, propName, componentName].concat(rest));
   if (error !== null) return error;
 
   if (props.min >= props.max) {
@@ -65,7 +69,11 @@ var minMaxPropType = function minMaxPropType(props, propName, componentName) {
  * @returns {Object} Returns an Error if the value is not within the range otherwise null.
  */
 var valueInRangePropType = function valueInRangePropType(props, propName, componentName) {
-  var error = _react.PropTypes.number(props, propName, componentName);
+  for (var _len2 = arguments.length, rest = Array(_len2 > 3 ? _len2 - 3 : 0), _key2 = 3; _key2 < _len2; _key2++) {
+    rest[_key2 - 3] = arguments[_key2];
+  }
+
+  var error = _react.PropTypes.number.apply(_react.PropTypes, [props, propName, componentName].concat(rest));
   if (error !== null) return error;
 
   var value = props[propName];
@@ -239,8 +247,8 @@ var Slider = function (_Component) {
 
     _classCallCheck(this, Slider);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+    for (var _len3 = arguments.length, args = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+      args[_key3] = arguments[_key3];
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Slider)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
