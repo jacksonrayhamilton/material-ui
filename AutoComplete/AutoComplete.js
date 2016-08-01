@@ -300,6 +300,7 @@ var AutoComplete = function (_Component) {
       var hintText = _props.hintText;
       var maxSearchResults = _props.maxSearchResults;
       var menuCloseDelay = _props.menuCloseDelay;
+      var textFieldStyle = _props.textFieldStyle;
       var menuStyle = _props.menuStyle;
       var menuProps = _props.menuProps;
       var listStyle = _props.listStyle;
@@ -310,7 +311,7 @@ var AutoComplete = function (_Component) {
       var openOnFocus = _props.openOnFocus;
       var searchTextProp = _props.searchText;
 
-      var other = _objectWithoutProperties(_props, ['anchorOrigin', 'animated', 'animation', 'dataSource', 'dataSourceConfig', 'disableFocusRipple', 'errorStyle', 'floatingLabelText', 'filter', 'fullWidth', 'style', 'hintText', 'maxSearchResults', 'menuCloseDelay', 'menuStyle', 'menuProps', 'listStyle', 'targetOrigin', 'triggerUpdateOnFocus', 'onNewRequest', 'onUpdateInput', 'openOnFocus', 'searchText']);
+      var other = _objectWithoutProperties(_props, ['anchorOrigin', 'animated', 'animation', 'dataSource', 'dataSourceConfig', 'disableFocusRipple', 'errorStyle', 'floatingLabelText', 'filter', 'fullWidth', 'style', 'hintText', 'maxSearchResults', 'menuCloseDelay', 'textFieldStyle', 'menuStyle', 'menuProps', 'listStyle', 'targetOrigin', 'triggerUpdateOnFocus', 'onNewRequest', 'onUpdateInput', 'openOnFocus', 'searchText']);
 
       var _state = this.state;
       var open = _state.open;
@@ -410,7 +411,8 @@ var AutoComplete = function (_Component) {
           hintText: hintText,
           fullWidth: fullWidth,
           multiLine: false,
-          errorStyle: errorStyle
+          errorStyle: errorStyle,
+          style: textFieldStyle
         })),
         _react2.default.createElement(
           _Popover2.default,
@@ -557,6 +559,10 @@ AutoComplete.propTypes = {
    * Origin for location of target.
    */
   targetOrigin: _propTypes2.default.origin,
+  /**
+   * Override the inline-styles of AutoComplete's TextField element.
+   */
+  textFieldStyle: _react.PropTypes.object,
   /**
    * If true, will update when focus event triggers.
    */
