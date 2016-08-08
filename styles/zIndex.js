@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = {
   menu: 1000,
   appBar: 1100,
-  bottomNavigation: 1150,
   drawerOverlay: 1200,
   drawer: 1300,
   dialogOverlay: 1400,

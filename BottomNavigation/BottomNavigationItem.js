@@ -16,10 +16,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _shallowEqual = require('recompose/shallowEqual');
-
-var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
-
 var _EnhancedButton = require('../internal/EnhancedButton');
 
 var _EnhancedButton2 = _interopRequireDefault(_EnhancedButton);
@@ -43,17 +39,17 @@ function getStyles(props, context) {
   var color = selected ? bottomNavigation.selectedColor : bottomNavigation.unselectedColor;
   var styles = {
     root: {
-      transition: 'all 0.3s',
-      paddingTop: selected ? '6px' : '8px',
-      paddingBottom: '10px',
-      paddingLeft: '12px',
-      paddingRight: '12px',
-      minWidth: '80px',
-      maxWidth: '168px'
+      transition: 'padding-top 0.3s',
+      paddingTop: selected ? 6 : 8,
+      paddingBottom: 10,
+      paddingLeft: 12,
+      paddingRight: 12,
+      minWidth: 80,
+      maxWidth: 168
     },
     label: {
       fontSize: selected ? bottomNavigation.selectedFontSize : bottomNavigation.unselectedFontSize,
-      transition: 'all 0.3s',
+      transition: 'color 0.3s, font-size 0.3s',
       color: color
     },
     icon: {
@@ -75,11 +71,6 @@ var BottomNavigationItem = function (_React$Component) {
   }
 
   _createClass(BottomNavigationItem, [{
-    key: 'shouldComponentUpdate',
-    value: function shouldComponentUpdate(nextProps, nextState) {
-      return !(0, _shallowEqual2.default)(this.props, nextProps) || !(0, _shallowEqual2.default)(this.state, nextState);
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _props = this.props;
@@ -94,8 +85,8 @@ var BottomNavigationItem = function (_React$Component) {
       var styles = getStyles(this.props, this.context, this.state);
 
       var styledIcon = _react2.default.cloneElement(icon, {
-        style: (0, _simpleAssign2.default)({}, icon.style, styles.icon),
-        color: styles.iconColor
+        style: (0, _simpleAssign2.default)({}, styles.icon, icon.style),
+        color: Object.prototype.hasOwnProperty.call(icon.props, 'color') ? icon.props.color : styles.iconColor
       });
 
       return _react2.default.createElement(
@@ -116,18 +107,15 @@ var BottomNavigationItem = function (_React$Component) {
   return BottomNavigationItem;
 }(_react2.default.Component);
 
-BottomNavigationItem.muiName = 'BottomNavigationItem';
 BottomNavigationItem.propTypes = {
   /**
    * Set the icon representing the view for this item.
    */
   icon: _react2.default.PropTypes.node,
-
   /**
    * Set the label describing the view for this item.
    */
-  label: _react2.default.PropTypes.string,
-
+  label: _react2.default.PropTypes.node,
   /**
    * Override the inline-styles of the root element.
    */

@@ -22,6 +22,9 @@ Examples:
 ```
 (#4705)
 
+##### Component Fixes / Enhancements
+- [BottomNavigation] Initial implementation (#4846)
+
 ## 0.15.3
 ###### _Jul 31, 2016_
 
@@ -52,7 +55,6 @@ Upgrade to React v15.2.1 if you are affected. (#4729)
 - [React] Fix more invalid props warning (#4667, #4675, #4685, #4725)
 - [Snackbar] Change the action's PropType to node (#4716)
 - [TextField] False should be a valid value (#4728)
-- [BottomNavigation] Initial implementation (#4846)
 
 ##### Core
 - [dependencies] Update to the latest release version (#4669)

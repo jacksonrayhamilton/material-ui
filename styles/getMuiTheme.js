@@ -91,7 +91,7 @@ function getMuiTheme(muiTheme) {
       fontWeight: _typography2.default.fontWeightMedium
     },
     bottomNavigation: {
-      backgroundColor: _colors.white,
+      backgroundColor: palette.canvasColor,
       unselectedColor: (0, _colorManipulator.fade)(palette.textColor, 0.54),
       selectedColor: palette.primary1Color,
       height: 56,

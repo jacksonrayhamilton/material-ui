@@ -24,34 +24,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * TODOs:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Support custom highlight colors
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Support custom highlight color per selected item
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Support badged icons
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Support showing label only for selected item
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Add constraints for number of children provided
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - Enforce appropriate label length and avoid overflows/breaks
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - V2: Support custom background color on bar depending on selected item
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - V2: Support expanding width of selected item
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - V2: Add scrolling behaviours (hiding)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * - V2: Determine how to handle larger displays (menu on left)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function getStyles(props, context) {
-  var _context$muiTheme = context.muiTheme;
-  var bottomNavigation = _context$muiTheme.bottomNavigation;
-  var zIndex = _context$muiTheme.zIndex;
+  var bottomNavigation = context.muiTheme.bottomNavigation;
 
 
   var styles = {
     root: {
       position: 'relative',
-      zIndex: zIndex.bottomNavigation,
       width: '100%',
       display: 'flex',
       justifyContent: 'center',
-      backgroundColor: bottomNavigation.color,
+      backgroundColor: bottomNavigation.backgroundColor,
       height: bottomNavigation.height
     },
     item: {
@@ -105,23 +90,19 @@ var BottomNavigation = function (_React$Component) {
   return BottomNavigation;
 }(_react2.default.Component);
 
-BottomNavigation.muiName = 'BottomNavigation';
 BottomNavigation.propTypes = {
   /**
    * The `BottomNavigationItem`s to populate the `BottomNavigation` with.
    */
   children: _react2.default.PropTypes.node,
-
   /**
    * Applied to the bottom navigation's root element.
    */
   className: _react2.default.PropTypes.string,
-
   /**
    * The index of the currently selected navigation item.
    */
   selectedIndex: _react2.default.PropTypes.number,
-
   /**
    * Override the inline-styles of the root element.
    */
